@@ -4,7 +4,6 @@ var request = require('request');
 
 app.get('/', function(req, res){
   res.sendfile('index.html');
-
 });
 
 http.listen(8080, function(){

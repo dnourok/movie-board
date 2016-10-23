@@ -4,15 +4,13 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Hello there</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" type="text/css" href="index.css">
 	<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
 <h1> HELLO WORLD </h1>
 <input id="movie" type="text" /><button>Search</button>
-<div id="div-my-table">
-<ul id="ordering">
-</ul>
+<div id="card">
 </div>
 	
 </body>
@@ -23,7 +21,7 @@ $(function() {
         mode = 'search/movie',
         input,
         movieName,
-       
+        key = '?api_key=c07bb825bc25d93f2608eb1883a674e4';
        
 
     $('button').click(function() {
@@ -35,21 +33,28 @@ $(function() {
             success: function(data) {
              var information = data.results;
              console.log(information)
-              var $list = $("<li></li>");
+             var $card = $('#card');
+              // var $list = $("<li></li>");
    						 $.each(information, function (i, item) {
-   						 	console.log(item.overview);
-        				$list.append(item.overview);
-        				// $list.append(item.title);
-        				// console.log(item.title)
-        				// $list.append(item.id);
-        					// $list.append(item.overview);
-        					// console.log(item.overview);
+                            var plot = item.overview
+                            // console.log(plot);
+                            var title = item.title
+                            // console.log(title);
+                            var language = item.original_language
+                            // console.log(language);
+                            var poster = item.poster_path
+                            // console.log(poster);
+   						   // console.log(item.overview);
+                           $('<p>' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>').appendTo($card);
+        				    // $list.append(plot);
+                            console.log(i + plot);
+
     					});
-    					$("#ordering").append($list);
+    					
 
             }
         });
-        
+       
     });
 });
 
