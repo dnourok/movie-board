@@ -4,20 +4,20 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>The Bucket List</title>
-  <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-<h1> The Bucket List </h1>
-<input id="movieSearch" type="text" /><button>Search</button>
-<div id="backgroundBoard">
-<div id="card">
-</div>
+  <h1> The Bucket List </h1>
+    <input id="movieSearch" type="text" />
+    <button type="button" class="btn btn-primary">Search Movie</button>
+      <div class="card">
+      </div>
 </body>
 	
 </body>
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script>
-
 $(function() {
     var url = 'http://api.themoviedb.org/3/',
         mode = 'search/movie',
@@ -34,26 +34,17 @@ $(function() {
             dataType: 'jsonp',
             success: function(data) {
              var information = data.results;
-             console.log(information)
-             var $card = $('#card');
-              // var $list = $("<li></li>");
+             var $card = $('.card');
    						 $.each(information, function (i, item) {
-                            var plot = item.overview
-                            // console.log(plot);
-                            var title = item.title
-                            // console.log(title);
-                            var language = item.original_language
-                            // console.log(language);
-                            var poster = item.poster_path
-                            // console.log(poster);
-   						   // console.log(item.overview);
-                           $('<p>' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>').appendTo($card);
-        				    // $list.append(plot);
-                            console.log(i + plot);
+                  var plot = item.overview;
+                  var title = item.title;
+                  var language = item.original_language;
+                  var poster = item.poster_path;
+                    
+                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '</div>').appendTo($card);
 
     					});
     					
-
             }
         });
        

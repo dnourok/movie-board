@@ -1,13 +1,29 @@
 body {
 	background-image: url('http://cdn.displays2go.com/images/enck7236bk-colorlg.jpg');
-	background-size: cover;
-	background-repeat: none;
+/*	background-size: cover;
+	background-repeat: none;*/
+}
+
+h1 {
+	text-align: center;
 }
 
 p{
 	color:white;
 }
 
-#movieSearch {
-	
+.card {
+	background-color:red;
+}
+
+.title {
+	text-align: center;
+	font-size: 30px;
+}
+
+.movieInfo {
+	background-color: black;
+	width: 30%;
+/*	display: inline-block;*/
+/*box-shadow: 10px 5px 5px black;*/
 }
