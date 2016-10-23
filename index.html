@@ -5,9 +5,55 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Hello there</title>
 	<link rel="stylesheet" href="">
+	<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
 <h1> HELLO WORLD </h1>
+<input id="movie" type="text" /><button>Search</button>
+<div id="div-my-table">
+<ul id="ordering">
+</ul>
+</div>
 	
 </body>
+<script>
+// DBMOVIE_API_KEY
+
+$(function() {
+    var url = 'http://api.themoviedb.org/3/',
+        mode = 'search/movie',
+        input,
+        movieName,
+       
+
+    $('button').click(function() {
+        var input = $('#movie').val(),
+            movieName = encodeURI(input);
+        $.ajax({
+            url: url + mode + key + '&query='+movieName ,
+            dataType: 'jsonp',
+            success: function(data) {
+             var information = data.results;
+             console.log(information)
+              var $list = $("<li></li>");
+   						 $.each(information, function (i, item) {
+   						 	console.log(item.overview);
+        				$list.append(item.overview);
+        				// $list.append(item.title);
+        				// console.log(item.title)
+        				// $list.append(item.id);
+        					// $list.append(item.overview);
+        					// console.log(item.overview);
+    					});
+    					$("#ordering").append($list);
+
+            }
+        });
+        
+    });
+});
+
+
+
+</script>
 </html>
