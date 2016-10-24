@@ -124,3 +124,7 @@ cursor: pointer;
     font-size: 20px;
     text-align: center;
 }
+
+.updatedMovieInfo {
+    background-color: red;
+}
