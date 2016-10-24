@@ -9,11 +9,22 @@
 </head>
 <body>
   <h1> The Bucket List </h1>
-    <input id="movieSearch" type="text" />
-    <button type="button" class="btn btn-primary">Search Movie</button>
-      <div class="card">
+    <div class="containerSearchMovie">
+      <input id="movieSearch" type="text" />
+      <button type="#button" class="btn btn-primary"><a id="button-text" href="#openModal">Search Movie</a></button>
+    </div>
+      
+    <div id="openModal" class="modalDecoration">
+      <div class="populateModal"> <a href="#close" title="Close" class="close">X</a>
+        <h2 id="modalTitle">Add a Movie to Bucket List</h2>
+          <div class="card">
+          </div>
       </div>
+    </div>
+
+
 </body>
+
 	
 </body>
   <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
@@ -35,13 +46,14 @@ $(function() {
             success: function(data) {
              var information = data.results;
              var $card = $('.card');
+             var $modal = $('.populateModal');
    						 $.each(information, function (i, item) {
                   var plot = item.overview;
                   var title = item.title;
                   var language = item.original_language;
                   var poster = item.poster_path;
                     
-                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '</div>').appendTo($card);
+                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '</div>').prependTo($card).appendTo($modal);
 
     					});
     					
@@ -49,7 +61,10 @@ $(function() {
         });
        
     });
+
 });
+
+// Todo: prepend cards to Modal
 
 
 
