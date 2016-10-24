@@ -22,6 +22,15 @@
       </div>
     </div>
 
+    <div class="container">
+     <div class="row">
+     </div>
+    </div>
+
+<!-- col-sm-3 is 4 cards per row
+col-sm-4 is 3 cards per row
+ -->
+ 
 
 </body>
 
@@ -34,7 +43,8 @@ $(function() {
         mode = 'search/movie',
         input,
         movieName,
-        key = '?api_key=c07bb825bc25d93f2608eb1883a674e4';
+        key = '?api_key=c07bb825bc25d93f2608eb1883a674e4',
+        urlPoster = 'http://api.themoviedb.org/3/configuration';
        
 
     $('button').click(function() {
@@ -45,6 +55,7 @@ $(function() {
             dataType: 'jsonp',
             success: function(data) {
              var information = data.results;
+             console.log(data);
              var $card = $('.card');
              var $modal = $('.populateModal');
    						 $.each(information, function (i, item) {
@@ -53,7 +64,7 @@ $(function() {
                   var language = item.original_language;
                   var poster = item.poster_path;
                     
-                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '</div>').prependTo($card).appendTo($modal);
+                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"></i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
 
     					});
     					
@@ -62,9 +73,51 @@ $(function() {
        
     });
 
+  // clears movie cards
+    $('.close').click(function() {
+      $('.movieInfo').empty();
+    });
+
+// Note: Click function only works for elements already on the page. Have to use
+// .on for an element on the page and then after click call what has been created
+// as a jquery element
+
+    $('.populateModal').on('click','.plus-icon',function(){
+      $('.movieInfo').appendTo('.row').attr("class", "col-sm-3");;
+        console.log('working')
+      $('.news').css('display','none');
+    });
+
+
+
+    // $('.movieInfo').click(function() {
+    //   console.log(working);
+    // });
+
+
+  // to get rid of the unwanted cards on the board just use the same function w/ the call on the trash icon
+
+    // $('.plus-icon').click(function() {
+    //   console.log(working);
+    // });
+
+
+
+
+// second AJAX call through a promise function?
+
+// works in this scope
+// var par = "words";
+// var $test = $('.test');
+// $('<p>' + par + '</p>').appendTo($test);
+
 });
 
 // Todo: prepend cards to Modal
+// if click X then clears any cards appended
+// maybe clears movieinfo and when it gets put to the page permanently then changes class
+// pin or tack png
+// add rows to normal page so you can align cards
 
 
 

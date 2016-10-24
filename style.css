@@ -12,6 +12,23 @@ p{
 	color:white;
 }
 
+.card1 {
+    background-color: red;
+}
+
+.card2 {
+   background-color: green; 
+}
+
+.card3 {
+    background-color: yellow;
+}
+
+.card4 {
+    background-color: orange;
+    
+}
+
 .card {
 cursor: pointer;
 }
@@ -100,4 +117,10 @@ cursor: pointer;
 }
 .close:hover {
     background: #00d9ff;
+}
+
+.plus-icon {
+    color: #337ab7;
+    font-size: 20px;
+    text-align: center;
 }
