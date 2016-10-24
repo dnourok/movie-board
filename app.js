@@ -12,6 +12,7 @@ app.use('/', function(req, res){
   res.sendfile('style.css');
 });
 
+
 http.listen(8080, function(){
   console.log('listening on *:8080');
 });

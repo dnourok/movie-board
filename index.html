@@ -31,7 +31,6 @@
 col-sm-4 is 3 cards per row
  -->
  
-
 </body>
 
 	
@@ -73,7 +72,7 @@ $(function() {
        
     });
 
-  // clears movie cards
+  // clears movie cards once modal closes
     $('.close').click(function() {
       $('.movieInfo').empty();
     });
@@ -82,11 +81,16 @@ $(function() {
 // .on for an element on the page and then after click call what has been created
 // as a jquery element
 
-    $('.populateModal').on('click','.plus-icon',function(){
-      $('.movieInfo').appendTo('.row').attr("class", "col-sm-3");;
-        console.log('working')
-      $('.news').css('display','none');
-    });
+  // changes class of movieInfo as not to delete all cards once modal is closed
+  // and appends to the page the card you wish to add to your bucket list
+    $('.populateModal').on('click','.plus-icon',function(e){
+      e.preventDefault();
+      var cardToAttach = $(this).closest($("[class^=movieInfo]"));
+        $(cardToAttach).appendTo('.row').attr("class", "col-sm-3");
+        // right here put a line to change plus icon to the trash
+        // $('.modalDecoration').css('display','none');
+}); 
+
 
 
 
