@@ -1,7 +1,5 @@
 body {
 	background-image: url('http://cdn.displays2go.com/images/enck7236bk-colorlg.jpg');
-/*	background-size: cover;
-	background-repeat: none;*/
 }
 
 h1 {
@@ -128,3 +126,5 @@ cursor: pointer;
 .updatedMovieInfo {
     background-color: red;
 }
+
+

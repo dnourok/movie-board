@@ -9,6 +9,7 @@
 </head>
 <body>
   <h1> The Bucket List </h1>
+  <div id="background-container">
     <div class="containerSearchMovie">
       <input id="movieSearch" type="text" />
       <button type="#button" class="btn btn-primary"><a id="button-text" href="#openModal">Search Movie</a></button>
@@ -22,15 +23,13 @@
       </div>
     </div>
 
-    <div class="container">
-     <div class="row">
-     </div>
-    </div>
+      <div class="container">
+        <div class="row">
+        </div>
+      </div>
 
-<!-- col-sm-3 is 4 cards per row
-col-sm-4 is 3 cards per row
- -->
- 
+  </div>
+
 </body>
 
 	
@@ -62,8 +61,7 @@ $(function() {
                   var language = item.original_language;
                   var poster = item.poster_path;
                     
-                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"></i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
-
+                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"> Add to Board </i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
     					});
     					
             }
@@ -81,37 +79,24 @@ $(function() {
       e.preventDefault();
       var deleteCard = $(this).closest($("[class^=col-sm-3]"));
       $(deleteCard).remove();
-      console.log("DELETE")
     });
-  // to get rid of the unwanted cards on the board just use the same function w/ the call on the trash icon. Should be .on
 
-// Note: Click function only works for elements already on the page. Have to use
-// .on for an element on the page and then after click call what has been created
-// as a jquery element
-
-  // changes class of movieInfo as not to delete all cards once modal is closed
-  // and appends to the page the card you wish to add to your bucket list
+  // appends to the page the card you wish to add to your bucket list
     $('.populateModal').on('click','.plus-icon',function(e){
       e.preventDefault();
       var cardToAttach = $(this).closest($("[class^=movieInfo]"));
         $(cardToAttach).appendTo('.row').attr("class", "col-sm-3 updatedMovieInfo");
-        $(".glyphicon-plus").attr("class", "glyphicon glyphicon-trash");
-        // right here put a line to change plus icon to the trash
-        // $('.modalDecoration').click('.close');
-    }); 
 
+  // changes to delete icon once appended to page
+      $('.glyphicon-plus').attr('class', 'glyphicon glyphicon-trash').text(" Delete");
+
+  // closes modal once card has been picked 
+      $('a.close')[0].click()
+
+  }); 
 
 
 });
-
-// Todo: prepend cards to Modal
-// if click X then clears any cards appended
-// maybe clears movieinfo and when it gets put to the page permanently then changes class
-// pin or tack png
-// add rows to normal page so you can align cards
-// second AJAX call through a promise function?
-
-
 
 </script>
 </html>
