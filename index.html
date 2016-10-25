@@ -61,7 +61,7 @@ $(function() {
                   var language = item.original_language;
                   var poster = item.poster_path;
                     
-                    $('<div class="movieInfo">' + '<p class="title">' + "Title:  " + title + '</p>' + '<p>' + "Plot:  " + plot + '</p>' + '<p>' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"> Add to Board </i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
+                    $('<div class="movieInfo">' + '<p class="title">' + title + '</p>' + '<p class="movieInfoText">' + "Plot:  " + plot + '</p>' + '<p class="languageText">' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"> Add to Board </i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
     					});
     					
             }
@@ -77,7 +77,7 @@ $(function() {
   // allows you to delete cards on your bucket list
     $('.row').on('click', '.glyphicon-trash', function(e) {
       e.preventDefault();
-      var deleteCard = $(this).closest($("[class^=col-sm-3]"));
+      var deleteCard = $(this).closest($("[class^=col-sm-4]"));
       $(deleteCard).remove();
     });
 
@@ -85,7 +85,7 @@ $(function() {
     $('.populateModal').on('click','.plus-icon',function(e){
       e.preventDefault();
       var cardToAttach = $(this).closest($("[class^=movieInfo]"));
-        $(cardToAttach).appendTo('.row').attr("class", "col-sm-3 updatedMovieInfo");
+        $(cardToAttach).appendTo('.row').attr("class", "col-sm-4 updatedMovieInfo");
 
   // changes to delete icon once appended to page
       $('.glyphicon-plus').attr('class', 'glyphicon glyphicon-trash').text(" Delete");
