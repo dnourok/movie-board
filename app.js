@@ -9,7 +9,10 @@ app.get('/', function(req, res){
   res.sendfile('index.html');
 });
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use('/public/style.css', express.static(path.join(__dirname, '/public/style.css')));
+app.use('/public/index.js', express.static(path.join(__dirname, '/public/index.js')));
+
+
 
 
 app.listen(8080, function(){
