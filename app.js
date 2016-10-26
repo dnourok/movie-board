@@ -13,8 +13,6 @@ app.use('/public/style.css', express.static(path.join(__dirname, '/public/style.
 app.use('/public/index.js', express.static(path.join(__dirname, '/public/index.js')));
 
 
-
-
 app.listen(8080, function(){
   console.log('listening on *:8080');
 });
