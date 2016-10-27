@@ -1,5 +1,6 @@
 // var secrets = require('secrets.json');
 // var apiKey = secrets["key"];
+// var mlbKey = secrets["mlbKey"];
 // console.log(apiKey);
 var $card = $('.card');
 var $modal = $('.populateModal');
@@ -10,6 +11,8 @@ var movieName;
 movieName = encodeURI(input);
 var url = 'http://api.themoviedb.org/3/';
 var mode = 'search/movie';
+var mlbUrl = 'http://api.sportradar.us/mlb-t5/games/2016/10/09/schedule.xml';
+
 
 
   function load() {
@@ -57,7 +60,7 @@ load();
   }
 
 function bindApiEvent() {
-    $('button').click(function(){
+    $('.movieButton').click(function(){
         new Promise(function(resolve, reject) {
           var poster = callPosterImage();
           resolve(poster);
@@ -80,17 +83,34 @@ function bindApiEvent() {
                   console.log(poster)
                     
                     $('<div class="movieInfo">' + '<p class="title">' + title + '</p>' + '<p class="movieInfoText">' + "Plot:  " + plot + '</p>' + '<p class="languageText">' + "Original Language:  " + language + '</p>' + '<div class="plus-icon">' + '</figcaption><i class="glyphicon glyphicon-plus"> Add to Board </i>' + '</div>' + '</div>').prependTo($card).appendTo($modal);
-                
+                    // $('<img class="moviePoster>')
+                    // add image poster here
+                    // new div entirely "left side"
+                    // to get image need base_url, a file_size and a file_path.
+                    // I have base url above and file_path below. Need file_size
+                    // Want the size to either be w342 or w500. For example the url below:
+                   // https://image.tmdb.org/t/p/w342/2c0dUpI8CSoQT5rsbsgNGjvVuFM.jpg
+                   // add the call above to be in the same scope as the other
                 }); 
             }
         });
       });
     });
 
-    // to get image need base_url, a file_size and a file_path.
-    // I have base url above and file_path below. Need file_size
-    // Want the size to either be w342 or w500. For example the url below:
-    // https://image.tmdb.org/t/p/w342/2c0dUpI8CSoQT5rsbsgNGjvVuFM.jpg
-    // add the call above to be in the same scope as the other
+
+   
+      $('.mlbButton').click(function(){
+      $.ajax({
+        url: 'http://api.sportradar.us/mlb-t5/games/2016/10/09/schedule.xml',
+        method: 'GET',
+        crossorigin: true,
+        dataType: 'xml',
+          success: function(data){
+          console.log(data);
+        }
+      });
+    });
+
+
 
 }
