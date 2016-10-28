@@ -35,6 +35,8 @@ var $imagePoster = $('.imagePoster')
       e.preventDefault();
       var cardToAttach = $(this).closest($("[class^=movieInfo]"));
       $(cardToAttach).appendTo('.rowMovie').attr("class", "col-md-4 updatedMovieInfo");
+      $('.moviePosterLocation').attr("class", "moviePosterLocationNew");
+      $('.movieInfoText').attr("class", "movieInfoTextNew");
       $('a.close')[0].click();
       $('.glyphicon-plus').attr('class', 'glyphicon glyphicon-trash').text(" Delete");
     });
@@ -72,7 +74,6 @@ load();
 
  function callMLBSchedule() {
       $.ajax({
-
         method: 'GET',
         crossorigin: true,
         dataType: 'xml',
@@ -85,6 +86,7 @@ load();
    $('.mlbButton').click(function(){
             callMLBSchedule()
             $('.mlbDisplayCard').show();
+            $('.mlbSectionTitle').show();
         });
 
     function bindApiEvent() {
@@ -116,4 +118,3 @@ load();
             });
   }
 
-  // put div around image
