@@ -23,9 +23,9 @@ var $imagePoster = $('.imagePoster')
   }
 
   function bindDeleteButtonEvent() {
-        $('.row').on('click', '.glyphicon-trash', function(e) {
+        $('.rowMovie').on('click', '.glyphicon-trash', function(e) {
         e.preventDefault();
-        var deleteCard = $(this).closest($("[class^=col-sm-4]"));
+        var deleteCard = $(this).closest($("[class^=col-md-4]"));
         $(deleteCard).remove();
       });
   }
@@ -34,11 +34,22 @@ var $imagePoster = $('.imagePoster')
     $('.populateModal').on('click','.plus-icon', function(e) {
       e.preventDefault();
       var cardToAttach = $(this).closest($("[class^=movieInfo]"));
-      $(cardToAttach).appendTo('.row').attr("class", "col-sm-4 updatedMovieInfo")
+      $(cardToAttach).appendTo('.rowMovie').attr("class", "col-md-4 updatedMovieInfo");
       $('a.close')[0].click();
       $('.glyphicon-plus').attr('class', 'glyphicon glyphicon-trash').text(" Delete");
     });
   }
+
+
+function bindMlBcardToBoard(){
+   $('.populateModalMLB').click('.plus-icon-MLB', function(e){
+     console.log("clicked")
+     var mlbCard = $(this).closest($("[class^=card]"));
+     $('.card').appendTo('.test');
+   });
+};
+
+
 
   function bindClearsMovieCardsInModal() {
       $('.close').click(function() {
@@ -61,7 +72,7 @@ load();
 
  function callMLBSchedule() {
       $.ajax({
-       
+
         method: 'GET',
         crossorigin: true,
         dataType: 'xml',
@@ -73,6 +84,7 @@ load();
 
    $('.mlbButton').click(function(){
             callMLBSchedule()
+            $('.mlbDisplayCard').show();
         });
 
     function bindApiEvent() {
@@ -103,3 +115,5 @@ load();
               });
             });
   }
+
+  // put div around image

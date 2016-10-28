@@ -8,8 +8,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
-  <h1> Danielle's Must Watch List </h1>
-  <div id="background-container">
+  <div id="topbar">
+    <h1 id="boardTitle"> Danielle's Must Watch List </h1>
+  </div>
+
+
     <div class="containerSearch">
       <input id="movieSearch" type="text" />
       <button type="#button" class="btn btn-primary movieButton"><a id="button-text" href="#openModal">Search Movie</a></button>
@@ -26,102 +29,89 @@
     </div>
 
       <div class="containerSearch">
-        <button class="btn btn-primary mlbButton"><a id="button-text">Search Next MLB Game </a></button>
+        <button onclick="dropDown()" class="btn btn-info mlbButton"><a id="button-text" href="#openModalMLB">Search Next MLB Game </a></button>
       </div>
 
-<!-- Modal for Baseball -->
-<!--     <div id="openModalMLB" class="modalDecorationMLB">
-        <div class="populateModalMLB"> <a href="#close" title="Close" class="close">X</a>
-
-           <div class="container">
-        <div class="row">
-
-          <div class="col-sm-4">
-          <div class="card" id="mlb-card">
-            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">Game 3: Friday October 28th</h4>
-                <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
-                 <div class="centerbutton">
-                <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
-                </div>
-            </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-          <div class="card" id="mlb-card">
-            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">Game 4: Saturday October 29th</h4>
-                <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
-                 <div class="centerbutton">
-                <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
-                </div>
-            </div>
-            </div>
-          </div>
-
-
-         <div class="col-sm-4">
-          <div class="card" id="mlb-card">
-            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">Game 5: Sunday October 30th</h4>
-                <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
-                 <div class="centerbutton">
-                <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
-                </div>
-            </div>
-            </div>
-          </div>
-
-        <div class="col-sm-4">
-          <div class="card" id="mlb-card">
-            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">Game 6: Tuesday November 1st</h4>
-                <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
-              <div class="centerbutton">
-                <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
-              </div>
-            </div>
-            </div>
-          </div>
-
-                     <div class="col-sm-4">
-          <div class="card" id="mlb-card">
-            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
-              <div class="card-block">
-                <h4 class="card-title">Game 7: Wednesday November 2nd</h4>
-                <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
-                 <div class="centerbutton">
-                <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
-                </div>
-            </div>
-            </div>
-          </div>
-
-        </div>
+      <!-- where movie cards append to -->
+    <div class="alignCards">
+      <div class="row rowMovie">
+      <div class="container movieCardsContainer">
       </div>
-
-        </div>
-    </div> -->
-
-
-
-    <!-- where movie cards append to -->
-      <div class="container">
-        <div class="row">
-        </div>
       </div>
+    </div>
       <!-- where movie cards append to -->
 
 
+
+
+      <div class="container MLBcontainer">
+      <h2> MLB Games </h2>
+        <div class="row">
+
+          <div class="col-sm-4 mlbDisplayCard">
+            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
+               <div class="card-block">
+                  <h4 class="card-title">Game 3: Friday October 28th</h4>
+                  <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
+               </div>
+               <div class="centerbutton">
+                  <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
+               </div>
+          </div>
+
+          <div class="col-sm-4 mlbDisplayCard">
+            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
+               <div class="card-block">
+                  <h4 class="card-title">Game 4: Friday October 28th</h4>
+                  <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
+               </div>
+               <div class="centerbutton">
+                  <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
+               </div>
+          </div>
+
+          <div class="col-sm-4 mlbDisplayCard">
+            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
+               <div class="card-block">
+                  <h4 class="card-title">Game 5: Friday October 28th</h4>
+                  <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
+               </div>
+               <div class="centerbutton">
+                  <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
+               </div>
+          </div>
+
+        </div>
+
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-sm-4 mlbDisplayCard">
+            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
+               <div class="card-block">
+                  <h4 class="card-title">Game 6: Friday October 28th</h4>
+                  <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
+               </div>
+               <div class="centerbutton">
+                  <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
+               </div>
+          </div>
+
+          <div class="col-sm-4 mlbDisplayCard">
+            <img class="card-img-top" src="https://1prso3391sqpaf1e11k5i8s1-wpengine.netdna-ssl.com/wp-content/uploads/2015/08/Chicago%20CubsvsCleveland%20Indians.jpg" alt="Card image cap">
+               <div class="card-block">
+                  <h4 class="card-title">Game 7: Friday October 28th</h4>
+                  <p class="card-text">Add this reminder to your board as not miss out on any of the fun!</p>
+               </div>
+               <div class="centerbutton">
+                  <a href="http://mlb.mlb.com/mlb/subscriptions/index.jsp?&affiliateId=MLBTVREDIRECT" class="btn btn-success" class="mlbTvButton">Checkout MLB.TV</a>
+               </div>
+          </div>
+
+        </div>
+      </div>
+
   </div>
-
-
-</body>
 
 	
 </body>

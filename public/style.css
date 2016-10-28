@@ -2,29 +2,17 @@ body {
 	background-image: url('http://cdn.displays2go.com/images/enck7236bk-colorlg.jpg');
 }
 
-h1 {
-	text-align: center;
+#topbar {
+    background-color: black;
+    color: white;
+    text-align: left;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 p{
 	color:white;
-}
-
-.card1 {
-    background-color: red;
-}
-
-.card2 {
-   background-color: green; 
-}
-
-.card3 {
-    background-color: yellow;
-}
-
-.card4 {
-    background-color: orange;
-    
 }
 
 .card {
@@ -57,11 +45,7 @@ cursor: pointer;
     border-radius: 10px !important;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-  /*  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);*/
     margin: 10px;
-/*	display: block;*/
-/*	display: inline-block;*/
-/*box-shadow: 10px 5px 5px #D3D3D3;*/
 }
 
 .movieInfoText {
@@ -75,15 +59,6 @@ cursor: pointer;
     padding-top: 10px;
 }
 
-/*.containerSearchMovie {
-}*/
-
-.back {
-	background-color: red;
-	height: 200px;
-	display: none;
-}
-/*test*/
 
 .modalDecoration {
     position: fixed;
@@ -153,7 +128,7 @@ cursor: pointer;
     left: 0;
     background: rgba(0, 0, 0, 0.8);
     z-index: 99999;
-    opacity:1;
+    opacity:0;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
     transition: opacity 400ms ease-in;
@@ -176,47 +151,11 @@ cursor: pointer;
     background: -o-linear-gradient(#fff, #999);
 }
 
-
-
-
-
-
-
 .updatedMovieInfo {
-    height: 500px;
-    margin: 20px;
-    background: transparent;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
+    background: red;
 }
 
 
-.rightSide {
-    width: 60%;
-    float: left;
-    background: #000000;
-    height: 400px;
-    border-radius: 0 10px 10px 0;
-    -webkit-border-radius: 0 10px 10px 0;
-    -moz-border-radius: 0 10px 10px 0;
-}
-
-.leftSide {
-    width: 40%;
-    height: 400px;
-    float: left;
-    overflow: hidden;
-   /* background: transparent;*/
-   background-color: red;
-}
 
 #mlb-card {
     background: transparent;
@@ -242,12 +181,91 @@ cursor: pointer;
 
 .containerSearch{
     text-align: center;
+    top: 18px;
+    right: -800px;
+    float: left;
+    position: relative
 }
 
 .centerbutton {
     text-align: center;
 }
 
+.mlbButton {
+    margin-left: 20px;
+}
 
+#boardTitle {
+ margin-left: 40px;
+}
 
+.alignCards{
+    position: relative;
+    bottom: -100px;
+}
+
+.modalDecorationMLB {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    overflow: scroll;
+}
+.modalDecorationMLB:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDecorationMLB > div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.closeMLB {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.closeMLB:hover {
+    background: #00d9ff;
+}
+
+.moviePosterLocation{
+    margin-left: 32%;
+    position: relative;
+}
+
+.mlbDisplayCard{
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border: 2px black solid;
+}
 
